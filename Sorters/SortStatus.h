@@ -7,20 +7,16 @@
 #include <vector>
 
 class SortStatus {
-    int status;
+    std::vector<int> vectorStatus = {};
+    std::vector<int> inComparison = {};
     int comparisons = 0;
-    bool inMotion;
-    std::vector<int> compared;
-
 public:
-    SortStatus(int s, std::vector<int> c, bool im, int com);
-    SortStatus(const SortStatus& x, std::vector<int> c);
-    int getStatus();
-    bool getMotion();
-    void incrementComparisons(int num);
-    void setMotion(bool x);
-    int getComparisons();
-    std::vector<int> lastCompared();
+    SortStatus(std::vector<int> &vs, std::vector<int> &ic, int c);
+    SortStatus(std::vector<int> &vs, std::initializer_list<int> ic, int c);
+    SortStatus() = default;
+    std::vector<int> getVectorStatus();
+    std::vector<int> getInComparison();
+    int              getComparisons();
 };
 
 

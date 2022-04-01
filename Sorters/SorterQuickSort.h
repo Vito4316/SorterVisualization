@@ -10,8 +10,8 @@
 class SorterQuickSort: public Sorter {
     void sort(std::vector<int> &array) override;
 private:
-    int partition(std::vector<int> &arr, int start, int end, int &status, int& comparisons);
-    int quickSortR(std::vector<int> &arr, int start, int end, int &status, int& comparisons);
+    int partition(std::vector<int> &arr, int start, int end, int& comparisons);
+    void quickSortR(std::vector<int> &arr, int start, int end, int& comparisons);
 };
 
 
