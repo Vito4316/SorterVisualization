@@ -7,40 +7,28 @@
 #include <utility>
 #include <iostream>
 
-SortStatus::SortStatus(int s, std::vector<int> c, bool im, int com) {
-    status = s;
-    compared = std::move(c);
-    inMotion = im;
-    comparisons = com;
+SortStatus::SortStatus(std::vector<int> &vs, std::vector<int> &ic, int c) {
+    vectorStatus = std::vector<int>(vs);
+    inComparison = std::vector<int>(ic);;
+    comparisons = c;
 }
 
-int SortStatus::getStatus() {
-    return status;
+SortStatus::SortStatus(std::vector<int> &vs, std::initializer_list<int> ic, int c) {
+    vectorStatus = std::vector<int>(vs);
+    inComparison = std::vector<int>(ic);;
+    comparisons = c;
 }
 
-bool SortStatus::getMotion() {
-    return inMotion;
+
+std::vector<int> SortStatus::getVectorStatus() {
+    return vectorStatus;
 }
 
-std::vector<int> SortStatus::lastCompared() {
-    return compared;
-}
-
-void SortStatus::incrementComparisons(int num) {
-    comparisons+=num;
+std::vector<int> SortStatus::getInComparison() {
+    return inComparison;
 }
 
 int SortStatus::getComparisons() {
     return comparisons;
 }
 
-SortStatus::SortStatus(const SortStatus& x, std::vector<int> c) {
-    this->inMotion = x.inMotion;
-    this->comparisons = x.comparisons;
-    this->status = x.status+1;
-    this->compared = std::move(c);
-}
-
-void SortStatus::setMotion(bool x) {
-    this->inMotion = x;
-}

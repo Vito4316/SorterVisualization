@@ -43,6 +43,7 @@ void testStatusBst() {
     else std::cout<<"not found";
 }
 */
+
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Sorter",
                        sf::Style::Close);
@@ -50,9 +51,9 @@ int main() {
     SorterQuickSort quickSort;
     SorterBubbleSort bubbleSort;
     Sorter *sort = &quickSort;
-    ArrayDraw drawer(window, 800, 580, 0, 700, sort);
+    ArrayDraw drawer(window, 800, 580, 0, 10000, sort);
     sf::Font font;
-    if(!font.loadFromFile(R"(C:\Windows\Fonts\arial.ttf)")) return -1;
+    font.loadFromFile(R"(C:\Windows\Fonts\arial.ttf)");
     sf::Text text;
     text.setFont(font);
     text.setCharacterSize(20);
@@ -72,8 +73,6 @@ int main() {
         }
         window.clear(sf::Color::Black);
 
-        text.setString(stringComparisons + std::to_string(sort->status.getComparisons()));
-        window.draw(text);
         drawer.drawSort();
 
         window.display();

@@ -5,10 +5,10 @@
 #ifndef GAME_SORTER_H
 #define GAME_SORTER_H
 #include <vector>
-#include "SortStatus.h"
+#include "SortStatusFIFO.h"
 class Sorter {
 public:
-    SortStatus status = SortStatus(0, std::vector<int>(), true, 0);
+    SortStatusFIFO status = SortStatusFIFO();
     virtual void sort(std::vector<int> &array) = 0;
 };
 

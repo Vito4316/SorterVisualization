@@ -18,9 +18,8 @@ private:
 
 public:
     ArrayDraw(sf::RenderWindow &w, float l, float h, float sp, int arrlen, Sorter *s);
-    void draw(std::vector<int> &array);
+    void draw(SortStatus x);
     void drawSort();
-
 };
 
 
